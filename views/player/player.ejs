@@ -1,0 +1,24 @@
+<script type="text/javascript" src="/player/jwplayer.js"></script>
+<div id="zgetlink"></div>
+<script>
+const replaceCharUrl = (string) => {
+    let stringExport = string;
+    stringExport = stringExport.split('&#34;').join('"');
+    stringExport = stringExport.split('&amp;').join('&');
+    return stringExport;
+}
+let sourceFile = replaceCharUrl('<%= data %>');
+
+console.log(sourceFile);
+
+jwplayer.key="ITWMv7t88JGzI0xPwW8I0+LveiXX9SWbfdmt0ArUSyc=";
+jwplayer('zgetlink').setup({
+	sources: JSON.parse(sourceFile),
+	primary: 'html5',
+	width: '100%',
+	aspectratio: '16:9',
+	mute: true,
+});
+
+
+</script>
